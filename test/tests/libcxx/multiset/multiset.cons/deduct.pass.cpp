@@ -186,10 +186,12 @@ void main() {
     assert(s.size() == 3);
   }
 
+#if !defined(__GNUC__)
   {
     int source[3] = { 3, 4, 5 };
     momo::stdish::multiset s{ source, source + 3 }; // multiset(initializer_list<int*>)
     ASSERT_SAME_TYPE(decltype(s), momo::stdish::multiset<int *>);
     assert(s.size() == 2);
   }
+#endif
 }
