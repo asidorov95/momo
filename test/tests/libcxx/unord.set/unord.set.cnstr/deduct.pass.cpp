@@ -144,12 +144,12 @@ void main()
     assert(std::is_permutation(s.begin(), s.end(), std::begin(expected_s), std::end(expected_s)));
     }
 
-    {
+    /*{
     momo::stdish::unordered_set s({ 1, 2, 1, INT_MAX, 3 }, 42, std::hash<short>(), std::equal_to<>());
 
     ASSERT_SAME_TYPE(decltype(s), momo::stdish::unordered_set<int, std::hash<short>, std::equal_to<>>);
     assert(std::is_permutation(s.begin(), s.end(), std::begin(expected_s), std::end(expected_s)));
-    }
+    }*/
 
     {
     momo::stdish::unordered_set s({ 1, 2, 1, INT_MAX, 3 }, 42, std::hash<short>(), std::equal_to<>(), test_allocator<int>(0, 43));
