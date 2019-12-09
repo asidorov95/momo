@@ -91,12 +91,12 @@ void main() {
     assert(s.size() == 0);
   }
 
-  {
+  /*{
     momo::stdish::multiset<long> source;
     momo::stdish::multiset s(source, momo::stdish::multiset<long>::allocator_type());
     ASSERT_SAME_TYPE(decltype(s), momo::stdish::multiset<long>);
     assert(s.size() == 0);
-  }
+  }*/
 
   {
     momo::stdish::multiset s{ 1, 2, 1, INT_MAX, 3 };
