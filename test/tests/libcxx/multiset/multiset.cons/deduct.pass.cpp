@@ -100,6 +100,7 @@ void main() {
   }
 #endif
 
+#if !defined(__GNUC__)
   {
     momo::stdish::multiset s{ 1, 2, 1, INT_MAX, 3 };
 
@@ -108,6 +109,7 @@ void main() {
     assert(std::equal(s.begin(), s.end(), std::begin(expected_s),
                       std::end(expected_s)));
   }
+#endif
 
   {
     momo::stdish::multiset s({ 1, 2, 1, INT_MAX, 3 }, std::greater<int>());
@@ -161,7 +163,6 @@ void main() {
     ASSERT_SAME_TYPE(decltype(s), momo::stdish::multiset<NotAnAllocator>);
     assert(s.size() == 1);
   }
-#endif
 
   {
     momo::stdish::multiset<long> source;
@@ -176,6 +177,7 @@ void main() {
     ASSERT_SAME_TYPE(decltype(s), momo::stdish::multiset<NotAnAllocator>);
     assert(s.size() == 2);
   }
+#endif
 
   {
     int source[3] = { 3, 4, 5 };
