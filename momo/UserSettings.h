@@ -114,12 +114,12 @@
 
 // `nullptr`, converted to the type `uintptr_t`
 #define MOMO_NULL_UINTPTR reinterpret_cast<uintptr_t>(static_cast<void*>(nullptr))
-/*
+
 #if defined(__clang__)
 #undef MOMO_NULL_UINTPTR
 #define MOMO_NULL_UINTPTR uintptr_t{0}
 #endif
-*/
+
 // One more pointer which doesn't point to anything but is not equal to `nullptr`
 #define MOMO_INVALID_UINTPTR (MOMO_NULL_UINTPTR + 1)
 
