@@ -91,12 +91,14 @@ void main() {
     assert(s.size() == 0);
   }
 
-  /*{
+#if !defined(__GNUC__) && !defined(__clang__)
+  {
     momo::stdish::multiset<long> source;
     momo::stdish::multiset s(source, momo::stdish::multiset<long>::allocator_type());
     ASSERT_SAME_TYPE(decltype(s), momo::stdish::multiset<long>);
     assert(s.size() == 0);
-  }*/
+  }
+#endif
 
   {
     momo::stdish::multiset s{ 1, 2, 1, INT_MAX, 3 };
@@ -152,12 +154,14 @@ void main() {
     assert(s.get_allocator().get_id() == 45);
   }
 
+#if !defined(__GNUC__)
   {
     NotAnAllocator a;
     momo::stdish::multiset s{ a }; // multiset(initializer_list<NotAnAllocator>)
     ASSERT_SAME_TYPE(decltype(s), momo::stdish::multiset<NotAnAllocator>);
     assert(s.size() == 1);
   }
+#endif
 
   {
     momo::stdish::multiset<long> source;
