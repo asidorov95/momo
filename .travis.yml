@@ -46,7 +46,7 @@ matrix:
       compiler: clang
       # clang 7.0.0
       env: COMPILER='clang++ -std=c++17 -O2'
-	  
+
     - compiler: clang
       dist: xenial
       addons:
@@ -58,17 +58,17 @@ matrix:
             - clang-8
       env: COMPILER='clang++-8 -std=c++17 -O2'
 
-    - compiler: clang
-      dist: xenial
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - sourceline: 'deb https://apt.llvm.org/xenial/ llvm-toolchain-xenial-9 main'
-              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
-          packages:
-            - clang-9
-      env: COMPILER='clang++-9 -std=c++17 -O2'
+#    - compiler: clang
+#      dist: xenial
+#      addons:
+#        apt:
+#          sources:
+#            - ubuntu-toolchain-r-test
+#            - sourceline: 'deb https://apt.llvm.org/xenial/ llvm-toolchain-xenial-9 main'
+#              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+#          packages:
+#            - clang-9
+#      env: COMPILER='clang++-9 -std=c++17 -O2'
 
 script:
   - cd test
