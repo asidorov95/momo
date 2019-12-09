@@ -1,26 +1,23 @@
 language: cpp
+os: linux
 dist: xenial
 
 matrix:
   include:
 
-    - os: osx
-      osx_image: xcode11
-      compiler: clang
-      env: COMPILER='clang++ -std=c++17'
+#    - os: osx
+#      osx_image: xcode11
+#      compiler: clang
+#      env: COMPILER='clang++ -std=c++17'
 
-    - os: linux
-      compiler: gcc
+    - compiler: gcc
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
-            - g++-8
-      env: COMPILER='g++-8 -std=c++17'
+            - g++-4.9
+      env: COMPILER='g++-4.9 -std=c++11'
 
-    - os: linux
-      compiler: gcc
+    - compiler: gcc
       addons:
         apt:
           sources:
@@ -29,20 +26,27 @@ matrix:
             - g++-9
       env: COMPILER='g++-9 -std=c++17'
 
-    - os: linux
-      compiler: gcc
+    - compiler: clang
+      addons:
+        apt:
+          packages:
+            - clang-3.6
+      env: COMPILER='clang++-3.6 -std=c++11'
+
+    - compiler: clang
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - llvm-toolchain-xenial-5.0
           packages:
-            - g++-10
-      env: COMPILER='g++-10 -std=c++17'
+            - clang-5.0
+      env: COMPILER='clang++-5.0 -std=c++17'
 
-    - os: linux
-      compiler: clang
-      # clang 7.0.0
-      env: COMPILER='clang++ -std=c++17'
+#    - os: linux
+#      compiler: clang
+#      # clang 7.0.0
+#      env: COMPILER='clang++ -std=c++17'
 
     - compiler: clang
       addons:
