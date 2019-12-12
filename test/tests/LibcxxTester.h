@@ -29,7 +29,9 @@
 
 #endif
 
+#ifdef __cpp_deduction_guides
 #define LIBCPP_TEST_DEDUCTION_GUIDES
+#endif
 
 //#define LIBCPP_HAS_BAD_NEWS_FOR_MOMO
 //#define LIBCPP_TEST_MIN_ALLOCATOR
