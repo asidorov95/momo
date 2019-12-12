@@ -11,6 +11,28 @@ matrix:
       env: COMPILER='clang++ -std=c++17'
 
     - compiler: gcc
+      # gcc 5.4.0
+      env: COMPILER='g++ -std=c++17'
+
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env: COMPILER='g++-6 -std=c++17'
+
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env: COMPILER='g++-7 -std=c++17'
+
+    - compiler: gcc
       addons:
         apt:
           sources:
@@ -28,10 +50,30 @@ matrix:
             - g++-9
       env: COMPILER='g++-9 -std=c++17'
 
-#    - os: linux
-#      compiler: clang
-#      # clang 7.0.0
-#      env: COMPILER='clang++ -std=c++17'
+    - compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-xenial-5.0
+          packages:
+            - clang-5.0
+      env: COMPILER='clang++-5.0 -std=c++17'
+
+    - compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-xenial-6.0
+          packages:
+            - clang-6.0
+      env: COMPILER='clang++-6.0 -std=c++17'
+
+    - os: linux
+      compiler: clang
+      # clang 7.0.0
+      env: COMPILER='clang++ -std=c++17'
 
     - compiler: clang
       addons:
